@@ -10,17 +10,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenvironment
-    environment: Dev1
+    environment: dev1
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Run a one-line script
-        run: echo Hello - $secret1 - world!
+        run: echo Hello - $secret1 - dev!
         env:
           secret1: ${{ secrets.SECRET1 }}
+  release:
+    runs-on: ubuntu-latest
+    # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenvironment
+    environment: prod
 
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello - $secret1 - prod!
+        env:
+          secret1: ${{ secrets.SECRET1 }}
