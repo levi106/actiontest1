@@ -22,7 +22,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idenvironment
-    environment: prod
+    environment: prod1
 
     steps:
       - uses: actions/checkout@v2
